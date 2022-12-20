@@ -68,11 +68,16 @@ jobs:
         name: bicep-template
         path: bicep-template
         
-   #Login in your azure subscription using a service principal (credentials stored as GitHub Secret in repo)
     - name: Azure Login
-      uses: azure/login@v1.4.3
+      uses: Azure/login@v1.4.6
       with:
         creds: ${{ secrets.AZURE_CREDENTIALS }}
+        
+   #Login in your azure subscription using a service principal (credentials stored as GitHub Secret in repo)
+#    - name: Azure Login
+#      uses: azure/login@v1
+#      with:
+#        creds: ${{ secrets.AZURE_CREDENTIALS }}
            
     # Deploy Azure WebApp using Bicep file
     - name: deploy
